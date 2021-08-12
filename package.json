@@ -4,6 +4,7 @@
   "description": "Google Oath 2.0 ",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js"
   },
   "author": "Paul Junkin",

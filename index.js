@@ -2,6 +2,8 @@ const express = require('express');
 const cookieParser = require('cookie-parser')
 const app = express();
 
+require("dotenv").config();
+
 
 //Google Oath
 const { OAuth2Client } = require('google-auth-library');
