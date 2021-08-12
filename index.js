@@ -7,7 +7,7 @@ require("dotenv").config();
 
 //Google Oath
 const { OAuth2Client } = require('google-auth-library');
-const CLIENT_ID = "787826835187-0evekp5t5roohviggdef4hlco1kh9h9f.apps.googleusercontent.com"
+const CLIENT_ID = "787826835187-ss3ukl735f1qs3f77ikqqldj6foglkaj.apps.googleusercontent.com"
 const client = new OAuth2Client(CLIENT_ID);
 
 const PORT = process.env.PORT || 5000

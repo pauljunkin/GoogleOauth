@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-client_id"
-        content="787826835187-0evekp5t5roohviggdef4hlco1kh9h9f.apps.googleusercontent.com">
+        content="787826835187-ss3ukl735f1qs3f77ikqqldj6foglkaj.apps.googleusercontent.com">
     <title>Document</title>
 </head>
 
@@ -35,7 +35,7 @@
                 const headers = {
                     'Content-Type': 'application/json'
                 };
-                const response = await axios.post('http://localhost:5000/login', data, { headers })
+                const response = await axios.post('/login', data, { headers })
                 if(response.data == 'success'){
                     signOut()
                     location.assign('/profile')
