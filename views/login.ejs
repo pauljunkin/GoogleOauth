@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="787826835187-0evekp5t5roohviggdef4hlco1kh9h9f.apps.googleusercontent.com">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Sign in with Google.</h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    
+
+    <h3>Routes Available</h3>
+    <a href="/">Index</a>
+    <a href="/login">Login</a>
+    <a href="/logout">Logout</a>
+    <a href="/profile">Profile (Protected)</a>
+    <a href="/protectedRoute">Protected Route (Protected)</a>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        function onSignIn(googleUser) {
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token" + id_token)
+
+            async function sendToken(id_token) {
+                const data = { token: id_token };
+                const headers = {
+                    'Content-Type': 'application/json'
+                };
+                const response = await axios.post('http://localhost:5000/login', data, { headers })
+                if(response.data == 'success'){
+                    signOut()
+                    location.assign('/profile')
+                }
+            }
+
+            sendToken(id_token);
+
+        }
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+</body>
+
+</html>
